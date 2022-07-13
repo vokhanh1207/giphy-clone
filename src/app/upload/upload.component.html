@@ -1,0 +1,41 @@
+<div class="pi-upload-message" 
+    [ngClass]="{'pi-upload-message-show': showSuccessMessage}">
+    <span class="pi-upload-done-text">Upload successful!</span>
+</div>
+<div class="pi-upload-area" >
+    <div class="pi-upload-button"
+        *ngIf="!uploading" 
+        appFileSelect 
+        (change)="handleUpload($event)">
+        <div class="pi-upload-text">
+            <i class="fa fa-plus" aria-hidden="true"></i> Choose file
+        </div>
+    </div>
+    <div class="pi-progress-container"
+        *ngIf="uploading" 
+        [ngStyle]="{'width': progressWidth + '%'}"
+    >
+        <div class="pi-upload-progress" [ngClass]="{'pi-uploading': uploading + '%'}">
+            <div class="pi-progress-inner"></div>
+            <div class="pi-upload-count">
+                <div class="pi-upload-count-inner" *ngIf="totalUploading > 1">
+                    {{currentUploadedCount}} / {{totalUploading}}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="pi-title" *ngIf="images.length">
+    <i class="fa fa-archive" aria-hidden="true"></i>
+    <h2>Uploaded</h2>
+</div>
+
+<app-mosaic-layout 
+    [images]="images" 
+    >
+</app-mosaic-layout>
+<div class="pi-loading">
+    <app-dot-loading [loading]="loading"></app-dot-loading>
+</div>

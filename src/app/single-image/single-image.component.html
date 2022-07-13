@@ -1,0 +1,18 @@
+<div 
+    *ngIf="image?.images?.original" 
+    class="pi-image">
+    <img src="{{image.images.original.url}}">
+    <a class="pi-image-link" [routerLink]="['/', 'details', image.id]">
+        <div class="top-actions">
+            <i class="fa fa-heart" aria-hidden="true" 
+            (click)="toggleFavorite(image, $event)"
+            [ngClass]="{
+                'pi-liked': favorites[image.id] ? true : false
+            }"></i>
+        </div>
+        <span>{{image.title}}</span>
+    </a>
+</div>
+<div *ngIf="!image?.images?.original" 
+    class="pi-image">
+</div>

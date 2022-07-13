@@ -1,0 +1,100 @@
+::ng-deep  app-single-image {
+    height: 100%;
+    width: 100%;
+}
+.pi-image {
+    background-size: 400px 300px;
+    background: linear-gradient(to right, #d5d5d5, #c2c2c2);
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-name: loading-bg;
+    transition-timing-function: linear;
+
+    font-size: 3rem;
+    color: #fff;
+    box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+    height: 100%;
+    width: 100%;
+    transition: all 500ms;
+    overflow: hidden;
+    position: relative;
+
+    @keyframes loading-bg {
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 600px 0;
+        }
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &:hover {
+        .pi-image-link {
+            transition: all 0.3s;
+            top: 0;
+        }
+    }
+
+    .pi-image-link {
+        top: 100%;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, transparent 60%, #000);
+        transition: all 0.3s;
+        z-index: 10;
+        cursor: pointer;
+        color: white;
+        left: 0;
+
+        span {
+            width: 100%;
+            font-size: 16px;
+            padding: 14px;
+            display: block;
+            bottom: 0;
+            position: absolute;
+        }
+
+        .top-actions {
+            text-align: right;
+            font-size: 20px;
+            padding: 5px 15px;
+            i {
+                text-shadow: 0px 1px 6px #ff61b58a;
+                color: white;
+
+                &:hover {
+                    animation-name: beating;
+                    animation-iteration-count: infinite;
+                    transition-timing-function: cubic-bezier(0.59, -0.48, 1, 1);
+                    animation-duration: 1s;
+                }
+            }
+            
+            i.pi-liked {
+                color: #ff3450;
+            }
+
+            @keyframes beating {
+                0% {
+                    transform: scale(1);
+                    color: white;
+                }
+    
+                100% {
+                    transform: scale(1.5);
+                    color: #ff3450;
+                }
+            }
+
+        }
+    }
+}

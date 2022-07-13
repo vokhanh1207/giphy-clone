@@ -1,0 +1,58 @@
+$pi-container-width: 1280px;
+.pi-container {
+    max-width: $pi-container-width;
+    padding: 0 15px;
+    margin: auto;
+
+    &.pi-header-sticked {
+        app-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            left: 0;
+            right: 0;
+            max-width: $pi-container-width;
+            padding: 0 15px;
+            animation-name: slide-down;
+            animation-duration: 0.4s;
+            background: black;
+            margin: auto;
+            
+
+            @keyframes slide-down {
+                0% {
+                    top: -90px;
+                }
+                100% {
+                    top: 0;
+                }
+            }
+        }
+
+        .pi-content {
+            margin-top: 150px;
+        }
+    }
+}
+::ng-deep .pi-header-sticked {
+    .pi-header {
+        background: black;
+        display: flex;
+        transition: all 0.3s;
+
+        .pi-logo {
+            width: 20%;
+            transition: all 0.3s;
+            text-align: left;
+
+            .pi-upload {
+                display: none!important;
+            }
+        }
+        .pi-search-form {
+            width: 80%;
+            transition: all 0.3s;
+        }
+    }
+}

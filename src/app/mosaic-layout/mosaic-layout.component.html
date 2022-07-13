@@ -1,0 +1,15 @@
+<div class="pi-mosaic-layout">
+    <ng-container *ngFor="let image of images; let i = index">
+        <div class="pi-mosaic-item"
+        [ngClass]="{
+            'pi-image-tall': +image.images.original?.height > 430 ? true : false
+        }"
+        >
+            <app-single-image 
+                [image]="image" 
+                [favorites]="favorites"
+            >
+            </app-single-image>
+        </div>
+    </ng-container>
+</div>

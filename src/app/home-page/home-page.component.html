@@ -1,0 +1,37 @@
+<div class="pi-home-page" >
+
+    <div *ngIf="favoritesShowingImages.length" class="pi-my-favorite">
+        <div class="pi-title">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <h2>My Favorite</h2>
+        </div>
+
+        <div class="pi-favorite-images">
+            <ng-container *ngFor="let image of favoritesShowingImages.slice(0, 4); let i = index">
+                <app-single-image 
+                    [image]="image" 
+                    [favorites]="favorites"
+                >
+                </app-single-image>
+            </ng-container>
+            <a *ngIf="favoritesShowingImages.length > 4" 
+                class="pi-more-favorites"
+                [routerLink]="['/my-favorite']"
+            >
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </a >
+        </div>
+    </div>
+
+    <div class="pi-home-images">
+        <div class="pi-title">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+            <h2>Trending</h2>
+        </div>
+       <app-mosaic-layout [images]="images" [favorites]="favorites"></app-mosaic-layout>
+    </div>
+
+    <div class="pi-load-more-loading">
+        <app-dot-loading [loading]="loading"></app-dot-loading>
+    </div>
+</div>

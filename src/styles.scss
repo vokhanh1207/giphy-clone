@@ -1,0 +1,123 @@
+/* You can add global styles to this file, and also import other style files */
+$fa-font-path: "../../../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+
+* {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0 0;
+    // background: linear-gradient(to bottom right, #002a4a, #8f0019);
+    background: black;
+    min-height: 100%;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+}
+.pi-title {
+    i {
+        font-size: 16px;
+        animation-iteration-count: infinite;
+        transition-timing-function: cubic-bezier(0.59, -0.48, 1, 1);
+        animation-duration: 1s;
+        width: 30px;
+        position: relative;
+        margin-right: 8px;
+        color: white;
+    }
+
+    .fa-heart {
+        color: #ffc3eb;
+        animation-name: trendingBeating;
+        text-align: center;
+        top: -2px;
+    }
+
+    .fa-upload, .fa-archive {
+        color: #ffc3eb;
+        animation-name: trendingBeating;
+        text-align: center;
+        top: -1px;
+    }
+
+    .fa-search {
+        color: white;
+        animation-name: trendingBeating;
+        text-align: center;
+        top: -2px;
+    }
+
+    .fa-arrows-alt {
+        color: aquamarine;
+        animation-name: trendingBeating;
+        text-align: center;
+        top: -2px;
+    }
+    .fa-line-chart {
+        color: aquamarine;
+        overflow: hidden;
+        position: relative;
+        font-size: 22px;
+        top: 1px;
+        &::after{
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: black;
+            left: 3px;
+            top: -3px;
+            animation-name: slideRight;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    h2 {
+        display: inline-block;
+        font-family: "Open Sans", sans-serif;
+        background: -webkit-linear-gradient(90deg, #1c9eff, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+    }
+
+    @keyframes trendingBeating {
+        0% {
+            font-size: 16px;
+            color: #ffc3eb;
+        }
+
+        100% {
+            font-size: 26px;
+            color: #ff3450;
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            left: 3px;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    @keyframes moreFavorites {
+        0% {
+            left: -10px;
+        }
+
+        100% {
+            left: 0px;
+        }
+    }
+}
